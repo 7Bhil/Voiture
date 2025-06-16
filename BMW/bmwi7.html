@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW i7 xDrive60 - Commande</title>
+    <link rel="stylesheet" href="bmwi7.css">
+</head>
+<body>
+    <div class="container">
+        <div class="vehicle-header">
+            <div class="vehicle-image">
+                <div class="slideshow-container" id="slideshow">
+                    <div class="slide active">
+                        <img src="../Voiture/BMW/I7/BM01.jpg" alt="BMW i7 - Vue avant">
+                    </div>
+                    <div class="slide">
+                        <img src="../Voiture/BMW/I7/BM02.jpg" alt="BMW i7 - Vue latérale">
+                    </div>
+                    <div class="slide">
+                        <img src="../Voiture/BMW/I7/BM03.jpg" alt="BMW i7 - Vue arrière">
+                    </div>
+                    <div class="slide">
+                        <img src="../Voiture/BMW/I7/BM04.jpg" alt="BMW i7 - Intérieur conducteur">
+                    </div>
+                    <div class="slide">
+                        <img src="../Voiture/BMW/I7/BM05.jpg" alt="BMW i7 - Sièges arrière">
+                    </div>
+                </div>
+                <div class="slideshow-nav">
+                    <button onclick="prevSlide()">❮</button>
+                    <div class="slide-indicator" id="slide-indicator">
+                        <div class="indicator-dot active" onclick="goToSlide(0)"></div>
+                        <div class="indicator-dot" onclick="goToSlide(1)"></div>
+                        <div class="indicator-dot" onclick="goToSlide(2)"></div>
+                        <div class="indicator-dot" onclick="goToSlide(3)"></div>
+                        <div class="indicator-dot" onclick="goToSlide(4)"></div>
+                    </div>
+                    <button onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+            <div class="vehicle-info">
+                <h1>BMW i7 xDrive60 2023</h1>
+                <div class="price">139 000 €</div>
+                <div class="specs">
+                    <div class="spec-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/53/53283.png" alt="Moteur">
+                        <span>Électrique – 544 chevaux (dual motor)</span>
+                    </div>
+                    <div class="spec-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Transmission">
+                        <span>Transmission intégrale BMW xDrive – automatique</span>
+                    </div>
+                    <div class="spec-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Consommation">
+                        <span>Autonomie jusqu'à 625km (WLTP)</span>
+                    </div>
+                    <div class="spec-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Couleur">
+                        <span>Noir carbone métallisé</span>
+                    </div>
+                </div>
+                <p>La BMW i7 2023 redéfinit le luxe électrique. Première berline 100% électrique de la Série 7, elle combine une puissance impressionnante de 544 chevaux avec un silence de fonctionnement absolu et un confort exceptionnel. Son design avant-gardiste, son habitacle somptueux et ses technologies de pointe font de chaque trajet une expérience unique.</p>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Caractéristiques principales</h2>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Système iDrive 8.5 avec écran incurvé 14.9" + écran passager arrière 31.3"</h3>
+                    <p>L'interface la plus avancée de BMW avec commande gestuelle, vocale naturelle et écran tactile haute résolution, plus un écran théâtre pour les passagers arrière.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Pack Executive Lounge</h3>
+                    <p>Sièges arrière inclinables à 42.5° avec repose-jambes électrique, ventilation, massage 8 programmes et tablette tactile de contrôle.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Sellerie cuir Merino full individual</h3>
+                    <p>Cuir d'exception travaillé à la main, avec sièges avant chauffants, ventilés, massants et à mémoire de position.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Toit panoramique Sky Lounge</h3>
+                    <p>Toit en verre électrochrome avec éclairage LED animé à 15.000 motifs différents créant une atmosphère unique.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-form">
+            <h2>Passer commande</h2>
+            <p>Remplissez ce formulaire pour réserver votre BMW i7 xDrive60. Un conseiller BMW vous contactera sous 24h pour finaliser votre commande.</p>
+            
+            <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nouvelle commande BMW i7 xDrive60">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="Véhicule" value="BMW i7 xDrive60 2023">
+                <input type="hidden" name="Prix" value="139 000 €">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="Email" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Adresse complète</label>
+                    <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville">
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Méthode de paiement préférée</label>
+                    <select id="payment" name="Méthode de paiement">
+                        <option value="" disabled selected>Sélectionnez une option</option>
+                        <option value="Financement BMW">Financement BMW</option>
+                        <option value="Crédit bancaire">Crédit bancaire</option>
+                        <option value="Paiement comptant">Paiement comptant</option>
+                        <option value="Leasing LLD">Leasing (LLD)</option>
+                        <option value="Autre">Autre solution</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message ou questions supplémentaires</label>
+                    <textarea id="message" name="Message" rows="4" placeholder="Vos questions ou demandes particulières..."></textarea>
+                </div>
+                
+                <button type="submit">Envoyer la demande de réservation</button>
+                
+                <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Gestion du diaporama
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.indicator-dot');
+        const totalSlides = slides.length;
+        let slideInterval;
+        
+        function showSlide(index) {
+            // Masquer toutes les slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Afficher la slide demandée
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            const newIndex = (currentSlide + 1) % totalSlides;
+            showSlide(newIndex);
+            resetTimer();
+        }
+        
+        function prevSlide() {
+            const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(newIndex);
+            resetTimer();
+        }
+        
+        function goToSlide(index) {
+            showSlide(index);
+            resetTimer();
+        }
+        
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000); // 5 secondes
+        }
+        
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startSlideShow();
+        }
+        
+        // Démarrer le diaporama automatique
+        startSlideShow();
+        
+        // Gestion de la soumission du formulaire
+        document.getElementById('vehicleOrderForm').addEventListener('submit', function(e) {
+            // Validation supplémentaire possible ici
+            console.log('Demande de réservation envoyée');
+        });
+    </script>
+</body>
+</html>
