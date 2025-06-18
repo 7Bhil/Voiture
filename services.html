@@ -1,129 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhildollars Cars</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - BhilDrive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-        
-        table{
-            border-spacing: 0 5px;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
 
-        }
-        td{
-            border: 1px solid black;
-            padding: 7px;
-            width: 350px;
-            text-align: center;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        }
-        
-        .achat-1{
-            height: 35px;
-        }
+    ul {
+      list-style: none;
+    }
 
-        .Div1 {
-            background-color: rgb(255, 255, 255);
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 60, 223, 0.911);
-            height: 400px;
-            margin-left: 20%;
-            margin-right: 20%;
-            margin-bottom: 100px;
-        }
-        .Div2{
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            justify-content: center;
-        }
-    </style>
+    /* HEADER / NAVIGATION */
+    .header {
+      background-color:  #000;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar a {
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffc107;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* SERVICES SECTION */
+    .services-section {
+      padding: 60px 20px;
+      background-color: #f5f7fa;
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2.5rem;
+      color: #002855;
+      margin-bottom: 40px;
+    }
+
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 30px 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card h3 {
+      color: #003e9c;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #003e9c;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #002855;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+        background-color: #002855;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 20px;
+    /* RESPONSIVE */
+        display: none;
+      }
+
+      .navbar.active ul {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">BhilDrive</h1>
-            <button class="menu-toggle" aria-label="Menu">
-                ☰
-            </button>
 
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Modèles</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="A propos.html">À propos</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- HEADER NAVIGATION -->
+  <header class="header">
+    <div class="logo">BhilDrive</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Modèles</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="A propos.html">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <div class="hero-slides">
-            <!-- Diaporama des voitures de luxe en arrière-plan -->
-            <div class="hero-slide active" style="background-image: url('Voiture/Ferrari/Ferrari.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/BMW/BMW.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Lamborghini/lamborghini.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Roll_Roys/RollRoys.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Audi/Audi.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Mercedes-Benz/Mercedes-Benz.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Maserati/Maserati.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Voiture/Porshe/Porshe.jpg');"></div>
+  <!-- SECTION SERVICES -->
+  <section class="services-section">
+    <h2>Nos Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <h3>Voitures neuves</h3>
+        <p>Modèles récents garantis avec les dernières technologies.</p>
+        <a href="#eee" class="btn">Achat ou Informations</a>
+      </div>
+      <div class="service-card">
+        <h3>Voitures d'occasion</h3>
+        <p>Révisées, certifiées et prêtes à prendre la route.</p>
+        <a href="#eee" class="btn">Achat ou Informations</a>
+      </div>
+      <div class="service-card">
+        <h3>Vente en ligne</h3>
+        <p>Réservez et achetez directement votre voiture en ligne.</p>
+        <a href="#eee" class="btn">Achat ou Informations</a>
+      </div>
+    </div>
+  </section>
 
-
-        </div>
-        
-        <div class="hero-text">
-            <h2>Conduisez l'exception</h2>
-            <p>Découvrez notre sélection exclusive de véhicules de luxe.</p>
-            <a href="index.html" class="btn">Voir les modèles</a>
-        </div>
-    </section>
-
-    <section>
-      <h2 style="text-align: center;">Vente de voiture</h2>
-        <div class="Div1">
-          <table>
-            <tr>
-                <td>Voiture neuves (modèle récent et garantis)</td>
-                <td style="padding: 1px;">
-                    <div class="Div2">
-                        <a href="#eee">Achat ou Informations</a>
-                        <a href="#eee"><img class="achat-1" src="logo/achat.png" alt="achat"></a>
-                        
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Voiture d'occasion :révisés,certifiés</td>
-                <td style="padding: 1px;">
-                    <div class="Div2">
-                        <a href="#eee">Achat ou Informations</a>
-                        <a href="#eee"><img class="achat-1" src="logo/achat.png" alt="achat"></a> 
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Vente en ligne:Réserver et acheter directement votre voiture</td>
-                <td style="padding: 1px;">
-                    <div class="Div2">
-                        <a href="#eee">Achat ou Informations</a>
-                        <a href="#eee"><img class="achat-1" src="logo/achat.png" alt="achat"></a> 
-                    </div>
-                </td>
-            </tr>
-          </table>
-        </div>  
-
-
-    </section>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.navbar').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
