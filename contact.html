@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - BhilDrive</title>
+  <title>Contact - BhilDrive</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     /* RESET & BASE */
@@ -71,61 +71,58 @@
       cursor: pointer;
     }
 
-    /* SERVICES SECTION */
-    .services-section {
+    /* CONTACT SECTION */
+    .contact-section {
       padding: 60px 20px;
       background-color: #f5f7fa;
       text-align: center;
     }
 
-    .services-section h2 {
+    .contact-section h2 {
       font-size: 2.5rem;
       color: #002855;
       margin-bottom: 40px;
     }
 
-    .services-container {
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .service-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      padding: 30px 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card h3 {
-      color: #003e9c;
-      margin-bottom: 15px;
-    }
-
-    .service-card p {
+    .contact-form input,
+    .contact-form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       font-size: 1rem;
-      color: #555;
-      margin-bottom: 20px;
+      font-family: inherit;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
       background-color: #003e9c;
       color: white;
+      padding: 12px;
+      border: none;
       border-radius: 5px;
       font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
       transition: background-color 0.3s;
     }
+    .contact-info {
+  margin-top: 40px;
+  text-align: left;
+ }
 
-    .btn:hover {
+    .contact-form button:hover {
       background-color: #002855;
     }
 
@@ -138,7 +135,6 @@
         top: 60px;
         right: 0;
         padding: 20px;
-    /* RESPONSIVE */
         display: none;
       }
 
@@ -150,6 +146,13 @@
         display: block;
       }
     }
+    .footer {
+    background-color:#002855;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
   </style>
 </head>
 
@@ -169,26 +172,22 @@
     </nav>
   </header>
 
-  <!-- SECTION SERVICES -->
-  <section class="services-section">
-    <h2>Nos Services</h2>
-    <div class="services-container">
-      <div class="service-card">
-        <h3>Voitures neuves</h3>
-        <p>Modèles récents garantis avec les dernières technologies.</p>
-        <a href="#eee" class="btn">Achat ou Informations</a>
-      </div>
-      <div class="service-card">
-        <h3>Voitures d'occasion</h3>
-        <p>Révisées, certifiées et prêtes à prendre la route.</p>
-        <a href="#eee" class="btn">Achat ou Informations</a>
-      </div>
-      <div class="service-card">
-        <h3>Vente en ligne</h3>
-        <p>Réservez et achetez directement votre voiture en ligne.</p>
-        <a href="#eee" class="btn">Achat ou Informations</a>
-      </div>
-    </div>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <h2>Contactez-nous</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Votre nom" required />
+      <input type="email" placeholder="Votre email" required />
+      <textarea placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <div class="contact-info">
+  <h3>Nos coordonnées</h3><br>
+  <p><strong>Adresse :</strong> 123 Rue des Moteurs, 75001 Paris, France</p>
+  <p><strong>Téléphone :</strong> <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+  <p><strong>Horaires :</strong> Lundi - Vendredi : 9h - 18h | Samedi : 10h - 16h</p>
+</div>
+
   </section>
 
   <script>
@@ -196,5 +195,10 @@
       document.querySelector('.navbar').classList.toggle('active');
     }
   </script>
+
+   <footer class="footer">
+        <p>&copy; 2025 LuxuryDrive. Tous droits réservés.</p>
+    </footer>
+
 </body>
 </html>
