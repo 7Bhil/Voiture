@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FERRARI - Passion et Vitesse</title>
+<link rel="stylesheet" href="description.css">
+
+</head>
+<body>
+<div class="container">
+<div class="model-selector">
+<div class="model-option active" data-model="superfast">812 SUPERFAST</div>
+<div class="model-option" data-model="sf90">SF90 STRADALE</div>
+<div class="model-option" data-model="purosangue">PUROSANGUE</div>
+<div class="model-option" data-model="roma">ROMA</div>
+</div>
+<div class="vehicle-header">
+<div class="vehicle-image">
+<div class="slideshow-container" id="slideshow">
+<!-- Images seront chargées dynamiquement -->
+</div>
+<div class="slideshow-nav">
+<button onclick="prevSlide()">❮</button>
+<div class="slide-indicator" id="slide-indicator"></div>
+<button onclick="nextSlide()">❯</button>
+</div>
+</div>
+<div class="vehicle-info">
+<h1 id="model-title">Ferrari 812 Superfast</h1>
+<div class="price" id="model-price">340 000 €</div>
+<div class="specs" id="model-specs">
+<!-- Spécifications seront chargées dynamiquement -->
+</div>
+<p id="model-description">La Ferrari 812 Superfast est la quintessence du V12 Ferrari, alliant puissance brute et élégance italienne.</p>
+</div>
+</div>
+<div class="features" id="model-features">
+<!-- Caractéristiques seront chargées dynamiquement -->
+</div>
+<div class="order-form">
+<h2>Passer commande</h2>
+<p>Remplissez ce formulaire pour réserver votre véhicule Ferrari. Un conseiller vous contactera sous 24h.</p>
+<form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+<input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande Ferrari 812 Superfast">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="Véhicule" id="form-vehicle" value="Ferrari 812 Superfast">
+<input type="hidden" name="Prix" id="form-price" value="340 000 €">
+<div class="form-group">
+<label for="name">Nom complet*</label>
+<input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+</div>
+<div class="form-group">
+<label for="email">Email*</label>
+<input type="email" id="email" name="Email" required placeholder="votre@email.com">
+</div>
+<div class="form-group">
+<label for="phone">Téléphone*</label>
+<input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78">
+</div>
+<div class="form-group">
+<label for="address">Adresse complète</label>
+<input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville">
+</div>
+<div class="form-group">
+<label for="payment">Méthode de paiement préférée</label>
+<select id="payment" name="Méthode de paiement">
+<option value="" disabled selected>Sélectionnez une option</option>
+<option value="Financement Ferrari">Financement Ferrari</option>
+<option value="Crédit bancaire">Crédit bancaire</option>
+<option value="Paiement comptant">Paiement comptant</option>
+<option value="Leasing LLD">Leasing (LLD)</option>
+<option value="Autre">Autre solution</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Message ou questions supplémentaires</label>
+<textarea id="message" name="Message" rows="4" placeholder="Vos questions ou demandes particulières..."></textarea>
+</div>
+<button type="submit">Envoyer la demande de réservation</button>
+<input type="hidden" name="_next" value="https://votresite.com/merci.html">
+<input type="hidden" name="_captcha" value="false">
+</form>
+</div>
+</div>
+
+<script>
+    // Données des modèles Ferrari
+const models = {
+    superfast: {
+        title: "Ferrari 812 Superfast 2023",
+        price: "340 000 €",
+        images: [
+            "../Voiture/Ferrari/812 SUPERFAST/F15.jpeg",
+            "../Voiture/Ferrari/812 SUPERFAST/F14.jpeg",
+            "../Voiture/Ferrari/812 SUPERFAST/F13.jpeg",
+            "../Voiture/Ferrari/812 SUPERFAST/F12.jpeg",
+            "../Voiture/Ferrari/812 SUPERFAST/F11.jpeg"
+        ],
+        altTexts: [
+            "Ferrari 812 Superfast - Vue avant",
+            "Ferrari 812 Superfast - Vue latérale",
+            "Ferrari 812 Superfast - Vue arrière",
+            "Ferrari 812 Superfast - Intérieur",
+            "Ferrari 812 Superfast - Moteur V12"
+        ],
+        specs: [
+            {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "6.5L V12 - 800 ch"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Propulsion arrière"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 2.9s"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Rouge Corsa"}
+        ],
+        description: "La Ferrari 812 Superfast est la quintessence du V12 Ferrari, alliant puissance brute et élégance italienne.",
+        features: [
+            {title: "Moteur V12 atmosphérique", description: "Le dernier V12 naturellement aspiré de Ferrari"},
+            {title: "Système EPS", description: "Direction électrique à assistance variable"},
+            {title: "SSC2", description: "Système de contrôle des virages de 2ème génération"},
+            {title: "Design aérodynamique", description: "Lignes sculptées pour une efficacité maximale"}
+        ]
+    },
+    sf90: {
+        title: "Ferrari SF90 Stradale 2023",
+        price: "420 000 €",
+        images: [
+            "../Voiture/Ferrari/SF90 STRADALE/F00.jpeg",
+            "../Voiture/Ferrari/SF90 STRADALE/F01.jpeg",
+            "../Voiture/Ferrari/SF90 STRADALE/F02.jpeg",
+            "../Voiture/Ferrari/SF90 STRADALE/F03.jpeg",
+            "../Voiture/Ferrari/SF90 STRADALE/F04.jpeg",
+            "../Voiture/Ferrari/SF90 STRADALE/F05.jpeg"
+        ],
+        altTexts: [
+            "Ferrari SF90 Stradale - Vue avant",
+            "Ferrari SF90 Stradale - Vue latérale",
+            "Ferrari SF90 Stradale - Vue arrière",
+            "Ferrari SF90 Stradale - Intérieur",
+            "Ferrari SF90 Stradale - Moteur hybride"
+        ],
+        specs: [
+            {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "4.0L V8 hybride - 1000 ch"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 2.5s"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Jaune Modena"}
+        ],
+        description: "La SF90 Stradale est la première Ferrari hybride rechargeable, combinant technologie de F1 et performances extrêmes.",
+        features: [
+            {title: "Système hybride", description: "3 moteurs électriques + V8 biturbo"},
+            {title: "eDrive", description: "Conduite 100% électrique sur 25 km"},
+            {title: "Manettino", description: "Sélecteur de modes de conduite avec option électrique"},
+            {title: "Aérodynamique active", description: "Système de volets réglables en course"}
+        ]
+    },
+    purosangue: {
+        title: "Ferrari Purosangue 2023",
+        price: "390 000 €",
+        images: [
+            "../Voiture/Ferrari/PUROSANGUE/F31.jpeg",
+            "../Voiture/Ferrari/PUROSANGUE/F35.jpeg",
+           "../Voiture/Ferrari/PUROSANGUE/F32.jpeg",
+            "../Voiture/Ferrari/PUROSANGUE/F33.jpeg",
+            "../Voiture/Ferrari/PUROSANGUE/F34.jpeg"
+        ],
+        altTexts: [
+            "Ferrari Purosangue - Vue avant",
+            "Ferrari Purosangue - Vue latérale",
+            "Ferrari Purosangue - Vue arrière",
+            "Ferrari Purosangue - Intérieur",
+            "Ferrari Purosangue - Espace coffre"
+        ],
+        specs: [
+            {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "6.5L V12 - 725 ch"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 3.3s"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Noir Metallizzato"}
+        ],
+        description: "Le premier SUV Ferrari, alliant les performances d'une sportive et le confort d'un véhicule haut de gamme.",
+        features: [
+            {title: "Portes suicide", description: "Ouverture antagoniste pour un accès facile"},
+            {title: "Suspension active", description: "Système Multimatic True Active Spool Valve"},
+            {title: "Espace 4 places", description: "Intérieur luxueux avec 4 sièges individuels"},
+            {title: "Coffre spacieux", description: "473 litres de capacité de chargement"}
+        ]
+    },
+    roma: {
+        title: "Ferrari Format 2023",
+        price: "230 000 €",
+        images: [
+            "../Voiture/Ferrari/FORMAT/F20.jpeg",
+            "../Voiture/Ferrari/FORMAT/F21.jpeg",
+            "../Voiture/Ferrari/FORMAT/F22.jpeg",
+            "../Voiture/Ferrari/FORMAT/F23.jpeg",
+            "../Voiture/Ferrari/FORMAT/F24.jpeg",
+            "../Voiture/Ferrari/FORMAT/F25.jpeg"
+        ],
+        altTexts: [
+            "Ferrari Roma - Vue avant",
+            "Ferrari Roma - Vue latérale",
+            "Ferrari Roma - Vue arrière",
+            "Ferrari Roma - Intérieur",
+            "Ferrari Roma - Tableau de bord"
+        ],
+        specs: [
+            {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "3.9L V8 - 620 ch"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Propulsion arrière"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 3.4s"},
+            {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Argento Metallizzato"}
+        ],
+        description: "La Ferrari Roma incarne le gran turismo dans sa forme la plus élégante, avec des lignes épurées et des performances exceptionnelles.",
+        features: [
+            {title: "Design rétro-moderne", description: "Lignes inspirées des GT des années 60"},
+            {title: "Écran tactile central", description: "Interface digitale verticale 8.4\""},
+            {title: "Boîte DCT 8 rapports", description: "Changement de rapports en 200ms"},
+            {title: "Pack Assetto Fiorano", description: "Options sportives pour circuit"}
+        ]
+    }
+};
+
+// Variables du diaporama
+let currentSlide = 0;
+let currentModel = 'superfast';
+let slides = [];
+let slideInterval;
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Initialisation...");
+    
+    // Gestion du sélecteur de modèle
+    const modelOptions = document.querySelectorAll('.model-option');
+    modelOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            modelOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            currentModel = this.dataset.model;
+            loadModel(currentModel);
+        });
+    });
+
+    // Charger le modèle par défaut
+    loadModel(currentModel);
+});
+
+// Charger un modèle spécifique
+function loadModel(model) {
+    console.log("Chargement du modèle:", model);
+    const modelData = models[model];
+    if (!modelData) return;
+
+    // Mettre à jour les infos principales
+    document.getElementById('model-title').textContent = modelData.title;
+    document.getElementById('model-price').textContent = modelData.price;
+    document.getElementById('model-description').textContent = modelData.description;
+
+    // Mettre à jour le formulaire
+    document.getElementById('form-subject').value = `Nouvelle commande ${modelData.title}`;
+    document.getElementById('form-vehicle').value = modelData.title;
+    document.getElementById('form-price').value = modelData.price;
+
+    // Mettre à jour les spécifications
+    const specsContainer = document.getElementById('model-specs');
+    specsContainer.innerHTML = '';
+    modelData.specs.forEach(spec => {
+        const specItem = document.createElement('div');
+        specItem.className = 'spec-item';
+        specItem.innerHTML = `
+            <img src="${spec.icon}" alt="Icone">
+            <span>${spec.text}</span>
+        `;
+        specsContainer.appendChild(specItem);
+    });
+
+    // Mettre à jour les caractéristiques
+    const featuresContainer = document.getElementById('model-features');
+    featuresContainer.innerHTML = '<h2>Caractéristiques principales</h2>';
+    modelData.features.forEach(feature => {
+        const featureItem = document.createElement('div');
+        featureItem.className = 'feature-item';
+        featureItem.innerHTML = `
+            <div class="feature-icon">✓</div>
+            <div>
+                <h3>${feature.title}</h3>
+                <p>${feature.description}</p>
+            </div>
+        `;
+        featuresContainer.appendChild(featureItem);
+    });
+
+    // Mettre à jour le diaporama
+    const slideshow = document.getElementById('slideshow');
+    slideshow.innerHTML = '';
+    const indicator = document.getElementById('slide-indicator');
+    indicator.innerHTML = '';
+
+    modelData.images.forEach((img, index) => {
+        // Créer les slides
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        if (index === 0) slide.classList.add('active');
+        slide.innerHTML = `<img src="${img}" alt="${modelData.altTexts[index]}" loading="lazy">`;
+        slideshow.appendChild(slide);
+
+        // Créer les indicateurs
+        const dot = document.createElement('div');
+        dot.className = 'indicator-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        indicator.appendChild(dot);
+    });
+
+    // Réinitialiser le diaporama
+    slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        showSlide(0);
+        resetTimer();
+    }
+}
+
+// Fonctions du diaporama
+function showSlide(index) {
+    if (!slides || slides.length === 0) return;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    const dots = document.querySelectorAll('.indicator-dot');
+    if (dots) dots.forEach(dot => dot.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    if (dots && dots[index]) dots[index].classList.add('active');
+    currentSlide = index;
+}
+
+function nextSlide() {
+    if (!slides || slides.length === 0) return;
+    const newIndex = (currentSlide + 1) % slides.length;
+    showSlide(newIndex);
+    resetTimer();
+}
+
+function prevSlide() {
+    if (!slides || slides.length === 0) return;
+    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(newIndex);
+    resetTimer();
+}
+
+function goToSlide(index) {
+    if (!slides || slides.length === 0) return;
+    showSlide(index);
+    resetTimer();
+}
+
+function startSlideShow() {
+    if (!slides || slides.length === 0) return;
+    slideInterval = setInterval(nextSlide, 5000); // 5 secondes
+}
+
+function resetTimer() {
+    clearInterval(slideInterval);
+    startSlideShow();
+}
+
+// Gestion du formulaire
+document.getElementById('vehicleOrderForm').addEventListener('submit', function(e) {
+    console.log('Demande de réservation envoyée');
+    // Validation supplémentaire possible ici
+});
+</script>
+</body>
+</html>

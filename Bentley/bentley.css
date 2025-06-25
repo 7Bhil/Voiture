@@ -13,7 +13,7 @@
         
         /* Header */
         header {
-            background-image: url(../Voiture/BMW/BMW.jpg);
+            background-image: url(./Voiture/Audi/Audi.jpg);
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -99,6 +99,11 @@
         
         .model-info {
             padding: 25px;
+        }
+        #X7{
+            width: 60%;
+            position: relative;
+            left: 135px;
         }
         
         .model-name {

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERCEDES-BENZ - Excellence Allemande et Performance</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            color: white;
+            border-radius: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .model-selector {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #C41E3A;
+            background: #f8f9fa;
+            border-radius: 10px 10px 0 0;
+        }
+        .model-option {
+            padding: 18px 35px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.4s;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .model-option:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .model-option:hover:before {
+            left: 100%;
+        }
+        .model-option.active {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.4);
+        }
+        .vehicle-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .vehicle-image {
+            flex: 1;
+            min-width: 350px;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+        .slideshow-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 25px;
+        }
+        .slideshow-nav button {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+        }
+        .slideshow-nav button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.5);
+        }
+        .slide-indicator {
+            display: flex;
+            gap: 12px;
+        }
+        .indicator-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .indicator-dot.active {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            transform: scale(1.2);
+        }
+        .vehicle-info {
+            flex: 1;
+            min-width: 350px;
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-top: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #C41E3A 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 25px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-left: 4px solid #C41E3A;
+        }
+        .spec-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .spec-item img {
+            width: 28px;
+            height: 28px;
+        }
+        .features {
+            margin: 50px 0;
+        }
+        .features h2 {
+            color: #1a1a1a;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            color: #C41E3A;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 5px;
+        }
+        .feature-item h3 {
+            margin: 0 0 10px 0;
+            color: #1a1a1a;
+        }
+        .order-form {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            border: 2px solid #C41E3A;
+        }
+        .order-form h2 {
+            color: #C41E3A;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #C41E3A;
+            outline: none;
+            box-shadow: 0 0 10px rgba(196, 30, 58, 0.2);
+        }
+        button[type="submit"] {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.4);
+        }
+        @media (max-width: 768px) {
+            .vehicle-header {
+                flex-direction: column;
+            }
+            .specs {
+                grid-template-columns: 1fr;
+            }
+            .model-option {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MERCEDES-BENZ</h1>
+            <p>Das Beste oder nichts - Le meilleur ou rien</p>
+        </div>
+
+        <div class="model-selector">
+            <div class="model-option active" data-model="amg-gt">AMG GT</div>
+            <div class="model-option" data-model="classe-s">CLASSE S</div>
+            <div class="model-option" data-model="maybach-gls">MAYBACH GLS</div>
+        </div>
+
+        <div class="vehicle-header">
+            <div class="vehicle-image">
+                <div class="slideshow-container" id="slideshow">
+                    <!-- Images seront chargées dynamiquement -->
+                </div>
+                <div class="slideshow-nav">
+                    <button onclick="prevSlide()">❮</button>
+                    <div class="slide-indicator" id="slide-indicator"></div>
+                    <button onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+            <div class="vehicle-info">
+                <h1 id="model-title">Mercedes-AMG GT 63 S 2023</h1>
+                <div class="price" id="model-price">180 000 €</div>
+                <div class="specs" id="model-specs">
+                    <!-- Spécifications seront chargées dynamiquement -->
+                </div>
+                <p id="model-description">La Mercedes-AMG GT incarne la passion automobile allemande avec une performance pure et un design saisissant.</p>
+            </div>
+        </div>
+
+        <div class="features" id="model-features">
+            <!-- Caractéristiques seront chargées dynamiquement -->
+        </div>
+
+        <div class="order-form">
+            <h2>Commander votre Mercedes-Benz</h2>
+            <p>Complétez ce formulaire pour réserver votre véhicule d'exception. Notre conseiller Mercedes vous contactera sous 24h.</p>
+            
+            <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+                <input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande Mercedes-AMG GT 63 S">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="Véhicule" id="form-vehicle" value="Mercedes-AMG GT 63 S 2023">
+                <input type="hidden" name="Prix" id="form-price" value="180 000 €">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="Email" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Adresse complète</label>
+                    <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville">
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Méthode de financement préférée</label>
+                    <select id="payment" name="Méthode de paiement">
+                        <option value="" disabled selected>Sélectionnez une option</option>
+                        <option value="Mercedes-Benz Financial Services">Mercedes-Benz Financial Services</option>
+                        <option value="Crédit automobile">Crédit automobile traditionnel</option>
+                        <option value="Paiement comptant">Paiement comptant</option>
+                        <option value="Leasing professionnel">Leasing professionnel</option>
+                        <option value="Location longue durée">Location longue durée</option>
+                        <option value="Autre">Autre solution de financement</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Options et personnalisations souhaitées</label>
+                    <textarea id="message" name="Message" rows="4" placeholder="Décrivez vos souhaits de configuration, options spéciales, couleurs préférées..."></textarea>
+                </div>
+                
+                <button type="submit">Envoyer ma demande de réservation</button>
+                
+                <input type="hidden" name="_next" value="https://votresite.com/merci-mercedes.html">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Données des modèles Mercedes-Benz
+        const models = {
+            'amg-gt': {
+                title: "Mercedes-AMG GT 63 S 2023",
+                price: "180 000 €",
+                images: [
+                    "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1563720223822-2d4ddc2931b4?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1552774634-b3ac1b47a6f4?w=800&h=600&fit=crop"
+                ],
+                altTexts: [
+                    "Mercedes-AMG GT - Puissance sportive",
+                    "Mercedes-AMG GT - Design agressif",
+                    "Mercedes-AMG GT - Performance track",
+                    "Mercedes-AMG GT - Intérieur racing",
+                    "Mercedes-AMG GT - Détails premium"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "4.0L V8 Biturbo - 630 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale 4MATIC+"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 3.2s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Grand Tourer sportif"}
+                ],
+                description: "La Mercedes-AMG GT incarne la passion automobile allemande avec une performance pure et un design saisissant.",
+                features: [
+                    {title: "AMG Performance 4MATIC+", description: "Transmission intégrale variable pour une traction optimale"},
+                    {title: "AMG Ride Control+", description: "Suspension pneumatique adaptative à réglage électronique"},
+                    {title: "AMG Track Pace", description: "Système de chronométrage et d'analyse des performances sur circuit"},
+                    {title: "MBUX High-End", description: "Système multimédia avec écrans 12.3\" et commande vocale intelligente"}
+                ]
+            },
+            'classe-s': {
+                title: "Mercedes-Benz Classe S 500 2023",
+                price: "120 000 €",
+                images: [
+                    "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1621135802273-f5a8d1636c0f?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1552774634-b3ac1b47a6f4?w=800&h=600&fit=crop"
+                ],
+                altTexts: [
+                    "Mercedes Classe S - Élégance executive",
+                    "Mercedes Classe S - Luxury sedan",
+                    "Mercedes Classe S - Technologie avancée",
+                    "Mercedes Classe S - Confort premium",
+                    "Mercedes Classe S - Raffinement absolu"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "3.0L 6-cylindres hybride - 435 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Propulsion arrière"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 5.1s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Berline de luxe"}
+                ],
+                description: "La Classe S définit les standards du luxe automobile avec un confort inégalé et une technologie d'avant-garde.",
+                features: [
+                    {title: "AIRMATIC", description: "Suspension pneumatique avec fonction Magic Body Control"},
+                    {title: "MBUX Hyperscreen", description: "Écran OLED incurvé de 56\" intégrant toutes les commandes"},
+                    {title: "Energizing Comfort", description: "Programmes de bien-être avec massages, parfums et éclairage d'ambiance"},
+                    {title: "Burmester 4D", description: "Système audio haute-fidélité avec haut-parleurs vibrants dans les sièges"}
+                ]
+            },
+            'maybach-gls': {
+                title: "Mercedes-Maybach GLS 600 2023",
+                price: "200 000 €",
+                images: [
+                    "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1552744486-df0b8f937ec8?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?w=800&h=600&fit=crop",
+                    "https://images.unsplash.com/photo-1563720223822-2d4ddc2931b4?w=800&h=600&fit=crop"
+                ],
+                altTexts: [
+                    "Maybach GLS - SUV de prestige",
+                    "Maybach GLS - Luxe et prestance",
+                    "Maybach GLS - Comfort ultime",
+                    "Maybach GLS - Intérieur somptueux",
+                    "Maybach GLS - Excellence Maybach"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "4.0L V8 Biturbo hybride - 558 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale 4MATIC"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 4.9s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "SUV ultra-luxe"}
+                ],
+                description: "Le Mercedes-Maybach GLS redéfinit l'art du voyage en SUV avec un luxe digne d'un salon privé.",
+                features: [
+                    {title: "Maybach Driving Modes", description: "Modes de conduite personnalisés pour un confort optimal"},
+                    {title: "Executive Rear Seats", description: "Sièges arrière individuels inclinables avec massage et chauffage"},
+                    {title: "Maybach Refrigerator", description: "Réfrigérateur intégré avec verres en cristal et champagne"},
+                    {title: "Active Road Noise Compensation", description: "Réduction active du bruit de roulement par ondes sonores inversées"}
+                ]
+            }
+        };
+
+        // Variables du diaporama
+        let currentSlide = 0;
+        let currentModel = 'amg-gt';
+        let slides = [];
+        let slideInterval;
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du sélecteur de modèle
+            const modelOptions = document.querySelectorAll('.model-option');
+            modelOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    modelOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    currentModel = this.dataset.model;
+                    loadModel(currentModel);
+                });
+            });
+
+            // Charger le modèle par défaut
+            loadModel(currentModel);
+        });
+
+        // Charger un modèle spécifique
+        function loadModel(model) {
+            const modelData = models[model];
+            
+            // Mettre à jour les infos principales
+            document.getElementById('model-title').textContent = modelData.title;
+            document.getElementById('model-price').textContent = modelData.price;
+            document.getElementById('model-description').textContent = modelData.description;
+            
+            // Mettre à jour le formulaire
+            document.getElementById('form-subject').value = `Nouvelle commande ${modelData.title}`;
+            document.getElementById('form-vehicle').value = modelData.title;
+            document.getElementById('form-price').value = modelData.price;
+            
+            // Mettre à jour les spécifications
+            const specsContainer = document.getElementById('model-specs');
+            specsContainer.innerHTML = '';
+            modelData.specs.forEach(spec => {
+                const specItem = document.createElement('div');
+                specItem.className = 'spec-item';
+                specItem.innerHTML = `
+                    <img src="${spec.icon}" alt="Icone">
+                    <span>${spec.text}</span>
+                `;
+                specsContainer.appendChild(specItem);
+            });
+            
+            // Mettre à jour les caractéristiques
+            const featuresContainer = document.getElementById('model-features');
+            featuresContainer.innerHTML = '<h2>Technologies d\'Excellence</h2>';
+            modelData.features.forEach(feature => {
+                const featureItem = document.createElement('div');
+                featureItem.className = 'feature-item';
+                featureItem.innerHTML = `
+                    <div class="feature-icon">★</div>
+                    <div>
+                        <h3>${feature.title}</h3>
+                        <p>${feature.description}</p>
+                    </div>
+                `;
+                featuresContainer.appendChild(featureItem);
+            });
+            
+            // Mettre à jour le diaporama
+            const slideshow = document.getElementById('slideshow');
+            slideshow.innerHTML = '';
+            const indicator = document.getElementById('slide-indicator');
+            indicator.innerHTML = '';
+            
+            modelData.images.forEach((img, index) => {
+                // Créer les slides
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                if (index === 0) slide.classList.add('active');
+                slide.innerHTML = `<img src="${img}" alt="${modelData.altTexts[index]}">`;
+                slideshow.appendChild(slide);
+                
+                // Créer les indicateurs
+                const dot = document.createElement('div');
+                dot.className = 'indicator-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(index);
+                indicator.appendChild(dot);
+            });
+            
+            // Réinitialiser le diaporama
+            slides = document.querySelectorAll('.slide');
+            currentSlide = 0;
+            resetTimer();
+        }
+
+        // Fonctions du diaporama
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const newIndex = (currentSlide + 1) % slides.length;
+            showSlide(newIndex);
+            resetTimer();
+        }
+
+        function prevSlide() {
+            const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+            resetTimer();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetTimer();
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000); // 5 secondes
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startSlideShow();
+        }
+
+        // Gestion du formulaire
+        document.getElementById('vehicleOrderForm').addEventListener('submit', function(e) {
+            // Validation supplémentaire possible ici
+            console.log('Demande de réservation envoyée pour Mercedes-Benz');
+        });
+
+        // Démarrer le diaporama au chargement
+        window.addEventListener('load', function() {
+            startSlideShow();
+        });
+    </script>
+</body>
+</html>

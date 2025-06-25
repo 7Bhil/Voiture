@@ -1,0 +1,198 @@
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .model-selector {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #8B4513;
+        }
+        .model-option {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s;
+        }
+        .model-option.active {
+            background: #8B4513;
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+        .vehicle-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .vehicle-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slideshow-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            gap: 20px;
+        }
+        .slideshow-nav button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        .slideshow-nav button:hover {
+            background: #654321;
+        }
+        .slide-indicator {
+            display: flex;
+            gap: 10px;
+        }
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .indicator-dot.active {
+            background: #8B4513;
+        }
+        .vehicle-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #8B4513;
+            margin-top: 0;
+            font-size: 2.2em;
+        }
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #B8860B;
+            margin: 20px 0;
+        }
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .spec-item img {
+            width: 24px;
+            height: 24px;
+        }
+        .features {
+            margin: 40px 0;
+        }
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        .feature-icon {
+            color: #8B4513;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        .order-form {
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-weight: bold;
+        }
+        button[type="submit"]:hover {
+            background: #654321;
+        }
+        @media (max-width: 768px) {
+            .vehicle-header {
+                flex-direction: column;
+            }
+            .specs {
+                grid-template-columns: 1fr;
+            }
+            .model-option {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }

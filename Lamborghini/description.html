@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMBORGHINI - Performance Extrême et Design Révolutionnaire</title>
+    <link rel="stylesheet" href="description.css">
+</head>
+<body>
+    <div class="container">
+        <div class="model-selector">
+            <div class="model-option active" data-model="urus">URUS</div>
+            <div class="model-option" data-model="huracan">HURACÁN</div>
+            <div class="model-option" data-model="aventador">AVENTADOR</div>
+        </div>
+
+        <div class="vehicle-header">
+            <div class="vehicle-image">
+                <div class="slideshow-container" id="slideshow">
+                    <!-- Images seront chargées dynamiquement -->
+                </div>
+                <div class="slideshow-nav">
+                    <button onclick="prevSlide()">❮</button>
+                    <div class="slide-indicator" id="slide-indicator"></div>
+                    <button onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+            <div class="vehicle-info">
+                <h1 id="model-title">Lamborghini Urus 2024</h1>
+                <div class="price" id="model-price">220 000 €</div>
+                <div class="specs" id="model-specs">
+                    <!-- Spécifications seront chargées dynamiquement -->
+                </div>
+                <p id="model-description">Le Lamborghini Urus redéfinit les SUV haute performance avec un design audacieux et une puissance extraordinaire.</p>
+            </div>
+        </div>
+
+        <div class="features" id="model-features">
+            <!-- Caractéristiques seront chargées dynamiquement -->
+        </div>
+
+        <div class="order-form">
+            <h2>Réserver votre Lamborghini</h2>
+            <p>Complétez ce formulaire pour réserver votre supercar. Un spécialiste Lamborghini vous contactera dans les plus brefs délais.</p>
+            
+            <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+                <input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande Lamborghini Urus">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="Véhicule" id="form-vehicle" value="Lamborghini Urus 2024">
+                <input type="hidden" name="Prix" id="form-price" value="220 000 €">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="Email" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Adresse complète</label>
+                    <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville">
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Méthode de financement préférée</label>
+                    <select id="payment" name="Méthode de paiement">
+                        <option value="" disabled selected>Sélectionnez une option</option>
+                        <option value="Financement Lamborghini">Financement Lamborghini</option>
+                        <option value="Crédit sportif premium">Crédit sportif premium</option>
+                        <option value="Paiement comptant">Paiement comptant</option>
+                        <option value="Leasing performance">Leasing performance</option>
+                        <option value="Location longue durée">Location longue durée</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Personnalisations ou questions</label>
+                    <textarea id="message" name="Message" rows="4" placeholder="Couleurs spéciales, options performance, questions techniques..."></textarea>
+                </div>
+                
+                <button type="submit">Confirmer la réservation</button>
+                
+                <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Données des modèles Lamborghini
+        const models = {
+            urus: {
+                title: "Lamborghini Urus 2024",
+                price: "220 000 €",
+                images: [
+                    "../Voiture/Lamborghini/URUS/L20.jpeg",
+                    "../Voiture/Lamborghini/URUS/L21.jpeg",
+                    "../Voiture/Lamborghini/URUS/L22.jpeg",
+                    "../Voiture/Lamborghini/URUS/L23.jpeg",
+                    "../Voiture/Lamborghini/URUS/L25.jpeg"
+                ],
+                altTexts: [
+                    "Lamborghini Urus - Puissance SUV",
+                    "Lamborghini Urus - Design agressif",
+                    "Lamborghini Urus - Performance tout-terrain",
+                    "Lamborghini Urus - Intérieur racing",
+                    "Lamborghini Urus - Détails sportifs"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "4.0L V8 biturbo - 650 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 3.6s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Super SUV"}
+                ],
+                description: "Le Lamborghini Urus redéfinit les SUV haute performance avec un design audacieux et une puissance extraordinaire.",
+                features: [
+                    {title: "Moteur V8 Biturbo", description: "650 chevaux de pure adrénaline avec couple maximal de 850 Nm"},
+                    {title: "Système ANIMA", description: "6 modes de conduite pour toutes les surfaces et conditions"},
+                    {title: "Suspension pneumatique", description: "Contrôle adaptatif avec correction d'assiette active"},
+                    {title: "Cockpit pilote", description: "Interface tactile avec écrans TFT et système télémétrique"}
+                ]
+            },
+            huracan: {
+                title: "Lamborghini Huracán 2024",
+                price: "200 000 €",
+                images: [
+                    "../Voiture/Lamborghini/HURACAN/L10.jpeg",
+                    "../Voiture/Lamborghini/HURACAN/L11.jpeg",
+                    "../Voiture/Lamborghini/HURACAN/L12.jpeg",
+                    "../Voiture/Lamborghini/HURACAN/L13.jpeg",
+                    "../Voiture/Lamborghini/HURACAN/L14.jpeg",
+                    "../Voiture/Lamborghini/HURACAN/L15.jpeg"
+                ],
+                altTexts: [
+                    "Lamborghini Huracán - Élégance sportive",
+                    "Lamborghini Huracán - Profil dynamique",
+                    "Lamborghini Huracán - Lignes pures",
+                    "Lamborghini Huracán - Cockpit racing",
+                    "Lamborghini Huracán - Performance accessible"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "5.2L V10 atmosphérique - 610 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 3.2s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Supercar V10"}
+                ],
+                description: "La Huracán combine parfaitement performances exceptionnelles et facilité de conduite quotidienne.",
+                features: [
+                    {title: "Moteur V10 5.2L", description: "610 chevaux de pur plaisir sonore et mécanique"},
+                    {title: "Châssis carbone-aluminium", description: "Rigidité maximale avec poids optimisé à 1422 kg"},
+                    {title: "Lamborghini Dynamic Steering", description: "Direction à démultiplication variable pour précision optimale"},
+                    {title: "Performance Traction Control", description: "Système de contrôle de traction intégré au différentiel"}
+                ]
+            },
+            aventador: {
+                title: "Lamborghini Aventador 2024",
+                price: "350 000 €",
+                images: [
+                    "../Voiture/Lamborghini/AVENTADOR/L00.jpeg",
+                    "../Voiture/Lamborghini/AVENTADOR/L01.jpeg",
+                    "../Voiture/Lamborghini/AVENTADOR/L02.jpeg",
+                    "../Voiture/Lamborghini/AVENTADOR/L03.jpeg",
+                    "../Voiture/Lamborghini/AVENTADOR/L04.jpeg",
+                    "../Voiture/Lamborghini/AVENTADOR/L05.jpeg"
+                ],
+                altTexts: [
+                    "Lamborghini Aventador - Icône absolue",
+                    "Lamborghini Aventador - Design révolutionnaire",
+                    "Lamborghini Aventador - Puissance ultime",
+                    "Lamborghini Aventador - Habitacle futuriste",
+                    "Lamborghini Aventador - Légende vivante"
+                ],
+                specs: [
+                    {icon: "https://cdn-icons-png.flaticon.com/512/53/53283.png", text: "6.5L V12 atmosphérique - 740 ch"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/2972/2972185.png", text: "Transmission intégrale"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/3652/3652191.png", text: "0-100 km/h en 2.9s"},
+                    {icon: "https://cdn-icons-png.flaticon.com/512/744/744465.png", text: "Hypercar V12"}
+                ],
+                description: "L'Aventador représente l'apogée de l'ingénierie Lamborghini avec son légendaire V12 atmosphérique.",
+                features: [
+                    {title: "Moteur V12 6.5L", description: "740 chevaux du plus mythique des moteurs Lamborghini"},
+                    {title: "Monocoque carbone", description: "Chassis 100% fibre de carbone ultra-léger et rigide"},
+                    {title: "Portes en élytre", description: "Ouverture iconique verticale signature de la marque"},
+                    {title: "Aérodynamique active", description: "Spoiler arrière mobile et diffuseur adaptatif haute performance"}
+                ]
+            }
+        };
+
+        // Variables du diaporama
+        let currentSlide = 0;
+        let currentModel = 'urus';
+        let slides = [];
+        let slideInterval;
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du sélecteur de modèle
+            const modelOptions = document.querySelectorAll('.model-option');
+            modelOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    modelOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    currentModel = this.dataset.model;
+                    loadModel(currentModel);
+                });
+            });
+
+            // Charger le modèle par défaut
+            loadModel(currentModel);
+        });
+
+        // Charger un modèle spécifique
+        function loadModel(model) {
+            const modelData = models[model];
+            
+            // Mettre à jour les infos principales
+            document.getElementById('model-title').textContent = modelData.title;
+            document.getElementById('model-price').textContent = modelData.price;
+            document.getElementById('model-description').textContent = modelData.description;
+            
+            // Mettre à jour le formulaire
+            document.getElementById('form-subject').value = `Nouvelle commande ${modelData.title}`;
+            document.getElementById('form-vehicle').value = modelData.title;
+            document.getElementById('form-price').value = modelData.price;
+            
+            // Mettre à jour les spécifications
+            const specsContainer = document.getElementById('model-specs');
+            specsContainer.innerHTML = '';
+            modelData.specs.forEach(spec => {
+                const specItem = document.createElement('div');
+                specItem.className = 'spec-item';
+                specItem.innerHTML = `
+                    <img src="${spec.icon}" alt="Icone">
+                    <span>${spec.text}</span>
+                `;
+                specsContainer.appendChild(specItem);
+            });
+            
+            // Mettre à jour les caractéristiques
+            const featuresContainer = document.getElementById('model-features');
+            featuresContainer.innerHTML = '<h2>Technologies de pointe</h2>';
+            modelData.features.forEach(feature => {
+                const featureItem = document.createElement('div');
+                featureItem.className = 'feature-item';
+                featureItem.innerHTML = `
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <h3>${feature.title}</h3>
+                        <p>${feature.description}</p>
+                    </div>
+                `;
+                featuresContainer.appendChild(featureItem);
+            });
+            
+            // Mettre à jour le diaporama
+            const slideshow = document.getElementById('slideshow');
+            slideshow.innerHTML = '';
+            const indicator = document.getElementById('slide-indicator');
+            indicator.innerHTML = '';
+            
+            modelData.images.forEach((img, index) => {
+                // Créer les slides
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                if (index === 0) slide.classList.add('active');
+                slide.innerHTML = `<img src="${img}" alt="${modelData.altTexts[index]}">`;
+                slideshow.appendChild(slide);
+                
+                // Créer les indicateurs
+                const dot = document.createElement('div');
+                dot.className = 'indicator-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(index);
+                indicator.appendChild(dot);
+            });
+            
+            // Réinitialiser le diaporama
+            slides = document.querySelectorAll('.slide');
+            currentSlide = 0;
+            resetTimer();
+        }
+
+        // Fonctions du diaporama
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const newIndex = (currentSlide + 1) % slides.length;
+            showSlide(newIndex);
+            resetTimer();
+        }
+
+        function prevSlide() {
+            const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+            resetTimer();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetTimer();
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 4500); // 4.5 secondes
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startSlideShow();
+        }
+
+        // Gestion du formulaire
+        document.getElementById('vehicleOrderForm').addEventListener('submit', function(e) {
+            // Validation supplémentaire possible ici
+            console.log('Demande de réservation envoyée pour Lamborghini');
+        });
+
+        // Démarrer le diaporama automatique
+        setTimeout(startSlideShow, 1000);
+    </script>
+</body>
+</html>

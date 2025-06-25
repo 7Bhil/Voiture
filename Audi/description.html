@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Luxe - Commande</title>
+    <link rel="stylesheet" href="description.css" />
+    
+    
+<body>
+    <div class="container">
+        <div class="model-selector">
+<div class="model-option active" data-model="a8">Audi A8</div>
+<div class="model-option" data-model="etron">e-tron GT</div>
+<div class="model-option" data-model="rs">RS6 Avant</div>
+
+        </div>
+
+        <div class="vehicle-header">
+            <div class="vehicle-image">
+                <div class="slideshow-container" id="slideshow">
+                    <!-- Images seront chargées dynamiquement -->
+                </div>
+                <div class="slideshow-nav">
+                    <button onclick="prevSlide()">❮</button>
+                    <div class="slide-indicator" id="slide-indicator"></div>
+                    <button onclick="nextSlide()">❯</button>
+                </div>
+                
+            </div>
+            <div class="vehicle-info">
+                <h1 id="model-title">BMW Série 7 2023</h1>
+                <div class="price" id="model-price">139 000 €</div>
+                <div class="specs" id="model-specs">
+                    <!-- Spécifications seront chargées dynamiquement -->
+                </div>
+                <p id="model-description">La BMW Série 7 2023 redéfinit le luxe automobile. Avec son design élégant, son habitacle somptueux et ses technologies de pointe, elle offre une expérience de conduite inégalée.</p>
+            </div>
+        </div>
+
+        <div class="features" id="model-features">
+            <!-- Caractéristiques seront chargées dynamiquement -->
+        </div>
+
+        <div class="order-form">
+            <h2>Passer commande</h2>
+            <p>Remplissez ce formulaire pour réserver votre véhicule. Un conseiller BMW vous contactera sous 24h.</p>
+            
+            <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+                <input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande BMW Série 7">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="Véhicule" id="form-vehicle" value="BMW Série 7 2023">
+                <input type="hidden" name="Prix" id="form-price" value="139 000 €">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="Email" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Adresse complète</label>
+                    <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville">
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment">Méthode de paiement préférée</label>
+                    <select id="payment" name="Méthode de paiement">
+                        <option value="" disabled selected>Sélectionnez une option</option>
+                        <option value="Financement BMW">Financement BMW</option>
+                        <option value="Crédit bancaire">Crédit bancaire</option>
+                        <option value="Paiement comptant">Paiement comptant</option>
+                        <option value="Leasing LLD">Leasing (LLD)</option>
+                        <option value="Autre">Autre solution</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message ou questions supplémentaires</label>
+                    <textarea id="message" name="Message" rows="4" placeholder="Vos questions ou demandes particulières..."></textarea>
+                </div>
+                
+                <button type="submit">Envoyer la demande de réservation</button>
+                
+                <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+        </div>
+    </div>
+
+    <script src="description.js">
+    </script>
+</body>
+</html>
