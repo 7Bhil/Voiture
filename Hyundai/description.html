@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyundai – Description</title>
+  <link rel="stylesheet" href="description.css" />
+</head>
+<body>
+  <div class="container">
+
+    <div class="model-selector">
+      <div class="model-option active" data-model="berline">Berline</div>
+      <div class="model-option" data-model="sportive">Sportive</div>
+      <div class="model-option" data-model="suv">SUV</div>
+    </div>
+
+    <!-- Véhicule principal -->
+    <div class="vehicle-header">
+      <div class="vehicle-image">
+        <div class="slideshow-container" id="slideshow"></div>
+        <div class="slideshow-nav">
+          <button id="prevSlide">&#10094;</button>
+          <div class="slide-indicator" id="slide-indicator"></div>
+          <button id="nextSlide">&#10095;</button>
+        </div>
+      </div>
+      <div class="vehicle-info">
+        <h1 id="model-title">Hyundai Berline Électrique</h1>
+        <div class="price" id="model-price">À partir de 27 000 €</div>
+        <p id="model-description">
+          Confort, technologie et autonomie électrique pour la ville et la route. Cette berline moderne vous offre une conduite fluide, silencieuse et économique.
+        </p>
+        <div class="specs" id="model-specs"></div>
+      </div>
+    </div>
+
+    <!-- Caractéristiques -->
+    <div class="features" id="model-features"></div>
+
+    <!-- Formulaire -->
+    <div class="order-form">
+      <h2>Passer commande</h2>
+      <form action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://votresite.com/merci.html" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <input type="hidden" id="form-subject" name="Sujet" />
+        <input type="hidden" id="form-vehicle" name="Modèle choisi" />
+        <input type="hidden" id="form-price" name="Prix affiché" />
+
+        <label>Nom complet*</label>
+        <input type="text" name="Nom" required placeholder="Votre nom complet" />
+
+        <label>Email*</label>
+        <input type="email" name="Email" required placeholder="votre@email.com" />
+
+        <label>Téléphone*</label>
+        <input type="tel" name="Téléphone" required placeholder="06 12 34 56 78" />
+
+        <label>Adresse</label>
+        <input type="text" name="Adresse" placeholder="Adresse complète" />
+
+        <label>Méthode de paiement</label>
+        <select name="Méthode de paiement" required>
+          <option disabled selected>Sélectionnez une option</option>
+          <option value="Financement Hyundai">Financement Hyundai</option>
+          <option value="Crédit bancaire">Crédit bancaire</option>
+          <option value="Paiement comptant">Paiement comptant</option>
+          <option value="Leasing LLD">Leasing (LLD)</option>
+          <option value="Autre">Autre solution</option>
+        </select>
+
+        <label>Message</label>
+        <textarea name="Message" rows="4" placeholder="Vos questions..."></textarea>
+
+        <button type="submit">Envoyer la demande</button>
+      </form>
+    </div>
+
+  </div>
+  <script src="description.js"></script>
+</body>
+</html>

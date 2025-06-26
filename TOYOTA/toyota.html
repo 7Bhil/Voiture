@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toyota - Luxe et Innovation</title>
+    <link rel="stylesheet" href="toyota.css" />
+</head>
+<body>
+     <header class="header">
+    <div class="logo">BhilDrive</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Modèles</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../A propos.html">À propos</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="models-container">
+        <div class="models-grid">
+            <!-- Modèle Berline Électrique -->
+            <div class="model-card">
+                <div class="model-image-container">
+                    <img src="../Voiture/Toyota/Berlines/berline06.png" alt="Toyota Berline Électrique" class="model-image" id="berline-main-image" />
+                </div>
+                <div class="model-info">
+                    <h2 class="model-name">Toyota Berline Électrique</h2>
+                    <p class="model-price">À partir de 45 900 €</p>
+                </div>
+                <div class="model-gallery">
+                    <img src="../Voiture/Toyota/Berlines/berline01.jpg" alt="Toyota Berline Électrique" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Berlines/berline02.jpg" alt="Toyota Berline Électrique" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Berlines/berline03.jpg" alt="Toyota Berline Électrique" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Berlines/berline04.jpg" alt="Toyota Berline Électrique" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Berlines/berline05.jpg" alt="Toyota Berline Électrique" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+                </div>
+                <a href="description.html" class="btn">Configurer votre Berline Électrique</a>
+            </div>
+
+            <!-- Modèle GR Sportive -->
+            <div class="model-card">
+                <div class="model-image-container">
+                    <img src="../Voiture/Toyota/Électriques/elec06.jpeg" alt="Toyota GR" class="model-image" id="gr-main-image" />
+                </div>
+                <div class="model-info">
+                    <h2 class="model-name">Toyota GR Sportive</h2>
+                    <p class="model-price">À partir de 58 900 €</p>
+                </div>
+                <div class="model-gallery">
+                    <img src="../Voiture/Toyota/Électriques/elec01.jpg" alt="Toyota GR" class="gallery-thumb" onclick="document.getElementById('gr-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Électriques/elec02.jpg" alt="Toyota GR" class="gallery-thumb" onclick="document.getElementById('gr-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Électriques/elec03.jpg" alt="Toyota GR" class="gallery-thumb" onclick="document.getElementById('gr-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Électriques/elec04.jpg" alt="Toyota GR" class="gallery-thumb" onclick="document.getElementById('gr-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/Électriques/elec05.jpg" alt="Toyota GR" class="gallery-thumb" onclick="document.getElementById('gr-main-image').src = this.src" />
+                </div>
+                <a href="description.html" class="btn">Configurer votre GR Sportive</a>
+            </div>
+
+            <!-- Modèle SUV -->
+            <div class="model-card" id="SUV">
+                <div class="model-image-container">
+                    <img src="../Voiture/Toyota/SU/SU01.jpg" alt="Toyota SUV" class="model-image" id="suv-main-image" />
+                </div>
+                <div class="model-info">
+                    <h2 class="model-name">Toyota SUV</h2>
+                    <p class="model-price">À partir de 52 000 €</p>
+                </div>
+                <div class="model-gallery">
+                    <img src="../Voiture/Toyota/SU/SU01.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/SU/SU02.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/SU/SU03.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/SU/SU04.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/SU/SU05.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                    <img src="../Voiture/Toyota/SU/SU06.jpg" alt="Toyota SUV" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+                </div>
+                <a href="description.html" class="btn">Configurer votre SUV Toyota</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Contact</a>
+            <a href="#">Essai routier</a>
+            <a href="#">Concessionnaires</a>
+            <a href="#">Financement</a>
+        </div>
+        <p>© 2025 Toyota. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,264 @@
+/* Reset et styles de base */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+:root {
+    --primary-color: #1a1a1a;       /* Noir intense Toyota */
+    --accent-color: #c8102e;        /* Rouge Toyota */
+    --background-color: #f9f9f9;    /* Fond clair */
+    --text-color: #333;
+    --light-grey: #e0e0e0;
+}
+
+/* Body */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* HEADER / NAVIGATION */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;       
+    margin: 0;              
+    padding: 0;              
+}
+
+.navbar a {
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease; 
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.navbar a:hover {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Section modèles */
+.models-container {
+    width: 70%;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.models-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 15%;
+}
+
+/* Cartes modèle avec glassmorphism */
+.model-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--light-grey);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.model-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(200, 20, 30, 0.35);
+}
+
+.model-image-container {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.model-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.model-card:hover .model-image {
+    transform: scale(1.05);
+}
+
+.model-info {
+    padding: 25px;
+}
+
+.model-name {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.model-price {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.model-gallery {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gallery-thumb {
+    width: 60px;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.gallery-thumb:hover {
+    border-color: var(--accent-color);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease;
+    font-size: 1.1rem;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(200, 20, 30, 0.4);
+}
+
+.btn:hover {
+    background: #800000;
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    #mod {
+        font-size: large;
+    }
+
+    .model-image-container {
+        height: 250px;
+    }
+
+    .model-name {
+        font-size: 1.5rem;
+    }
+
+    .model-price {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    .models-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .model-image-container {
+        height: 200px;
+    }
+
+    .model-name {
+        font-size: 1.3rem;
+    }
+
+    .model-price {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+}

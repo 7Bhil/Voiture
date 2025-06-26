@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyundai - Familles & Modèles</title>
+  <link rel="stylesheet" href="hyundai.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">BhilDrive</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Modèles</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../A propos.html">À propos</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="models-container">
+    <div class="models-grid">
+
+      <!-- Famille : Berlines Hyundai -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Hyundai/Berlines/berline06.png" alt="Hyundai Berline" class="model-image" id="berline-main-image" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">Famille Berlines Hyundai</h2>
+          <p class="model-price">À partir de 27 000 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Hyundai/Berlines/berline01.jpg" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Berlines/berline02.jpg" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Berlines/berline03.jpg" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Berlines/berline04.jpg" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Berlines/berline05.jpg" class="gallery-thumb" onclick="document.getElementById('berline-main-image').src = this.src" />
+        </div>
+        <a href="description.html" class="btn">Configurer votre Berline</a>
+      </div>
+
+      <!-- Famille : Sportives Hyundai -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Hyundai/Sportives/sportive06.jpeg" alt="Hyundai Sportive" class="model-image" id="sportive-main-image" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">Famille Sportives Hyundai</h2>
+          <p class="model-price">À partir de 39 900 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Hyundai/Sportives/sportive01.jpg" class="gallery-thumb" onclick="document.getElementById('sportive-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Sportives/sportive02.jpg" class="gallery-thumb" onclick="document.getElementById('sportive-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Sportives/sportive03.jpg" class="gallery-thumb" onclick="document.getElementById('sportive-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Sportives/sportive04.jpg" class="gallery-thumb" onclick="document.getElementById('sportive-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/Sportives/sportive05.jpg" class="gallery-thumb" onclick="document.getElementById('sportive-main-image').src = this.src" />
+        </div>
+        <a href="description.html" class="btn">Configurer votre Sportive</a>
+      </div>
+
+      <!-- Famille : SUV Hyundai -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Hyundai/SUV/SUV01.jpg" alt="Hyundai SUV" class="model-image" id="suv-main-image" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">Famille SUV Hyundai</h2>
+          <p class="model-price">À partir de 33 500 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Hyundai/SUV/SUV01.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/SUV/SUV02.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/SUV/SUV03.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/SUV/SUV04.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/SUV/SUV05.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+          <img src="../Voiture/Hyundai/SUV/SUV06.jpg" class="gallery-thumb" onclick="document.getElementById('suv-main-image').src = this.src" />
+        </div>
+        <a href="description.html" class="btn">Configurer votre SUV</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact</a>
+      <a href="#">Essai Hyundai</a>
+      <a href="#">Concessionnaires</a>
+      <a href="#">Financement</a>
+    </div>
+    <p>© 2025 Hyundai. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>

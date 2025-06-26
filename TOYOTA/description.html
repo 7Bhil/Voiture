@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toyota – Commande</title>
+  <link rel="stylesheet" href="description.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="model-selector">
+      <div class="model-option active" data-model="berline">Berline Électrique</div>
+      <div class="model-option" data-model="gr">GR Sportive</div>
+      <div class="model-option" data-model="suv" id="SUV">SUV Hybride</div>
+    </div>
+
+    <div class="vehicle-header">
+      <div class="vehicle-image">
+        <div class="slideshow-container" id="slideshow"></div>
+        <div class="slideshow-nav">
+          <button onclick="prevSlide()">❮</button>
+          <div class="slide-indicator" id="slide-indicator"></div>
+          <button onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+      <div class="vehicle-info">
+        <h1 id="model-title">Toyota Berline Électrique</h1>
+        <div class="price" id="model-price">45 990 €</div>
+        <div class="specs" id="model-specs"></div>
+        <p id="model-description">
+          La nouvelle Toyota Berline Électrique allie élégance, efficacité énergétique et technologie de pointe pour une conduite 100% électrique sans compromis.
+        </p>
+      </div>
+    </div>
+
+    <div class="features" id="model-features">
+      <!-- Caractéristiques dynamiques -->
+    </div>
+
+    <div class="order-form">
+      <h2>Passer commande</h2>
+      <p>
+        Remplissez ce formulaire pour réserver votre Toyota. Un conseiller vous contactera sous 24h.
+      </p>
+
+      <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+        <input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande Toyota Berline Électrique">
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="Véhicule" id="form-vehicle" value="Toyota Berline Électrique" />
+        <input type="hidden" name="Prix" id="form-price" value="45 990 €" />
+
+        <div class="form-group">
+          <label for="name">Nom complet*</label>
+          <input type="text" id="name" name="Nom" required placeholder="Votre nom complet"/>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="Email" required placeholder="votre@email.com"/>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Téléphone*</label>
+          <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78"/>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Adresse complète</label>
+          <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville"/>
+        </div>
+
+        <div class="form-group">
+          <label for="payment">Méthode de paiement préférée</label>
+          <select id="payment" name="Méthode de paiement">
+            <option value="" disabled selected>Sélectionnez une option</option>
+            <option value="Financement Toyota">Financement Toyota</option>
+            <option value="Crédit bancaire">Crédit bancaire</option>
+            <option value="Paiement comptant">Paiement comptant</option>
+            <option value="Leasing LLD">Leasing (LLD)</option>
+            <option value="Autre">Autre solution</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message ou questions supplémentaires</label>
+          <textarea id="message" name="Message" rows="4" placeholder="Vos questions ou demandes particulières..."></textarea>
+        </div>
+
+        <button type="submit">Envoyer la demande de réservation</button>
+
+        <input type="hidden" name="_next" value="https://votresite.com/merci.html" />
+        <input type="hidden" name="_captcha" value="false" />
+      </form>
+    </div>
+  </div>
+
+  <script src="description.js"></script>
+</body>
+</html>

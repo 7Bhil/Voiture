@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bugatti - Puissance & Prestige</title>
+  <link rel="stylesheet" href="bugatti.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">BhilDrive</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Modèles</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../A propos.html">À propos</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="models-container">
+    <div class="models-grid">
+      
+      <!-- Modèle Chiron -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Bugatti/Chiron/chiron-main.jpg" class="model-image" id="chiron-main" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">Bugatti Chiron</h2>
+          <p class="model-price">À partir de 2 500 000 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Bugatti/Chiron/chiron1.jpg" class="gallery-thumb" onclick="document.getElementById('chiron-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Chiron/chiron2.jpg" class="gallery-thumb" onclick="document.getElementById('chiron-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Chiron/chiron3.jpg" class="gallery-thumb" onclick="document.getElementById('chiron-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Chiron/chiron4.jpg" class="gallery-thumb" onclick="document.getElementById('chiron-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Chiron/chiron5.jpg" class="gallery-thumb" onclick="document.getElementById('chiron-main').src = this.src" />
+        
+        </div>
+        <a href="descriptio-bugatti.html" class="btn">Configurer votre Chiron</a>
+      </div>
+
+      <!-- Modèle Divo -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Bugatti/Divo/divo-main.jpg" class="model-image" id="divo-main" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">Bugatti Divo</h2>
+          <p class="model-price">À partir de 5 000 000 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Bugatti/Divo/divo1.jpg" class="gallery-thumb" onclick="document.getElementById('divo-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Divo/divo2.jpg" class="gallery-thumb" onclick="document.getElementById('divo-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Divo/divo3.jpg" class="gallery-thumb" onclick="document.getElementById('divo-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Divo/divo1.jpg" class="gallery-thumb" onclick="document.getElementById('divo-main').src = this.src" />
+          <img src="../Voiture/Bugatti/Divo/divo2.jpg" class="gallery-thumb" onclick="document.getElementById('divo-main').src = this.src" />
+        </div>
+        <a href="descriptio-bugatti.html" class="btn">Configurer votre Divo</a>
+      </div>
+
+      <!-- Modèle La Voiture Noire -->
+      <div class="model-card">
+        <div class="model-image-container">
+          <img src="../Voiture/Bugatti/VoitureNoire/vn-main.jpg" class="model-image" id="vn-main" />
+        </div>
+        <div class="model-info">
+          <h2 class="model-name">La Voiture Noire</h2>
+          <p class="model-price">À partir de 11 000 000 €</p>
+        </div>
+        <div class="model-gallery">
+          <img src="../Voiture/Bugatti/VoitureNoire/vn1.jpg" class="gallery-thumb" onclick="document.getElementById('vn-main').src = this.src" />
+          <img src="../Voiture/Bugatti/VoitureNoire/vn2.jpg" class="gallery-thumb" onclick="document.getElementById('vn-main').src = this.src" />
+          <img src="../Voiture/Bugatti/VoitureNoire/vn3.jpg" class="gallery-thumb" onclick="document.getElementById('vn-main').src = this.src" />
+          <img src="../Voiture/Bugatti/VoitureNoire/vn4.jpg" class="gallery-thumb" onclick="document.getElementById('vn-main').src = this.src" />
+          <img src="../Voiture/Bugatti/VoitureNoire/vn5.jpg" class="gallery-thumb" onclick="document.getElementById('vn-main').src = this.src" />
+        </div>
+        <a href="descriptio-bugatti.html" class="btn">Configurer votre Voiture Noire</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact</a>
+      <a href="#">Essai Bugatti</a>
+      <a href="#">Concessionnaires</a>
+      <a href="#">Financement</a>
+    </div>
+    <p>© 2025 Bugatti. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bugatti – Commande</title>
+  <link rel="stylesheet" href="description-bugatti.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="model-selector">
+      <div class="model-option active" data-model="chiron">Chiron</div>
+      <div class="model-option" data-model="noire">La Voiture Noire</div>
+      <div class="model-option" data-model="divo">Divo</div> <!-- ✅ clé JS = diva -->
+    </div>
+
+    <div class="vehicle-header">
+      <div class="vehicle-image">
+        <div class="slideshow-container" id="slideshow"></div>
+        <div class="slideshow-nav">
+          <button onclick="prevSlide()">❮</button>
+          <div class="slide-indicator" id="slide-indicator"></div>
+          <button onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+      <div class="vehicle-info">
+        <h1 id="model-title">Bugatti Chiron</h1>
+        <div class="price" id="model-price">2 990 000 €</div>
+        <div class="specs" id="model-specs"></div>
+        <p id="model-description">
+          La Bugatti Chiron, icône de puissance et de luxe, allie une technologie de pointe à un design futuriste.
+        </p>
+      </div>
+    </div>
+
+    <div class="features" id="model-features"></div>
+
+    <div class="order-form">
+      <h2>Passer commande</h2>
+      <p>Remplissez ce formulaire pour réserver votre Bugatti. Un conseiller vous contactera sous 24h.</p>
+
+      <form id="vehicleOrderForm" action="https://formsubmit.co/7bhilal.chitou7@gmail.com" method="POST">
+        <input type="hidden" name="_subject" id="form-subject" value="Nouvelle commande Bugatti Chiron" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="Véhicule" id="form-vehicle" value="Bugatti Chiron" />
+        <input type="hidden" name="Prix" id="form-price" value="2 990 000 €" />
+
+        <div class="form-group">
+          <label for="name">Nom complet*</label>
+          <input type="text" id="name" name="Nom" required placeholder="Votre nom complet" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="Email" required placeholder="votre@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Téléphone*</label>
+          <input type="tel" id="phone" name="Téléphone" required placeholder="06 12 34 56 78" />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Adresse complète</label>
+          <input type="text" id="address" name="Adresse" placeholder="Adresse, Code postal, Ville" />
+        </div>
+
+        <div class="form-group">
+          <label for="payment">Méthode de paiement préférée</label>
+          <select id="payment" name="Méthode de paiement">
+            <option value="" disabled selected>Sélectionnez une option</option>
+            <option value="Financement Bugatti">Financement Bugatti</option>
+            <option value="Crédit bancaire">Crédit bancaire</option>
+            <option value="Paiement comptant">Paiement comptant</option>
+            <option value="Leasing LLD">Leasing (LLD)</option>
+            <option value="Autre">Autre solution</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message ou questions supplémentaires</label>
+          <textarea id="message" name="Message" rows="4" placeholder="Vos questions ou demandes particulières..."></textarea>
+        </div>
+
+        <button type="submit">Envoyer la demande de réservation</button>
+        <input type="hidden" name="_next" value="https://votresite.com/merci.html" />
+        <input type="hidden" name="_captcha" value="false" />
+      </form>
+    </div>
+  </div>
+
+  <script src="description-bugatti.js"></script>
+</body>
+</html>
