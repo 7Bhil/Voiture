@@ -1,241 +1,240 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* BODY */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-    background-color: #f9f9f9;
-    line-height: 1.6;
+  background-color: #f2f5f8;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* CONTAINER */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 40px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
+/* MODEL SELECTOR */
 .model-selector {
-    display: flex;
-    border-bottom: 3px solid #002c5f;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 15px;
 }
 
 .model-option {
-    padding: 16px 32px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 8px 8px 0 0;
-    color: #555;
+  padding: 12px 24px;
+  background-color: #dfe6ed;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #005baa;
+  border: 2px solid transparent;
 }
 
-.model-option.active {
-    background: #002c5f;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 44, 95, 0.4);
+.model-option.active,
+.model-option:hover {
+  background-color: #005baa;
+  color: white;
+  border-color: #004080;
 }
 
+/* VEHICLE HEADER */
 .vehicle-header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 40px;
 }
 
 .vehicle-image {
-    flex: 1;
-    min-width: 320px;
+  flex: 1 1 50%;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
 .slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
 .slide.active {
-    opacity: 1;
+  display: block;
 }
 
 .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slideshow-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .slideshow-nav button {
-    background: #002c5f;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #005baa;
 }
 
 .slide-indicator {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 6px;
 }
 
 .indicator-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
 }
 
 .indicator-dot.active {
-    background: #002c5f;
+  background: #005baa;
 }
 
+/* VEHICLE INFO */
 .vehicle-info {
-    flex: 1;
-    min-width: 320px;
+  flex: 1 1 45%;
 }
 
-h1 {
-    color: #002c5f;
-    font-size: 2.5rem;
-    margin: 0 0 20px;
+#model-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #005baa;
 }
 
-.price {
-    font-size: 28px;
-    color: #0063c6;
-    font-weight: bold;
-    margin-bottom: 20px;
+#model-price {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2c7a00;
+}
+
+#model-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
 }
 
 .specs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .spec-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #555;
+  background: #eaf2f9;
+  padding: 10px;
+  border-radius: 6px;
+  color: #003b70;
+  font-size: 15px;
 }
 
-.spec-item img {
-    width: 26px;
-    height: 26px;
-}
-
+/* FEATURES SECTION */
 .features {
-    margin: 50px 0;
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.feature-item {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 25px;
-    align-items: flex-start;
-}
-
-.feature-icon {
-    color: #002c5f;
-    font-weight: 700;
-    font-size: 22px;
-}
-
+/* ORDER FORM */
 .order-form {
-    background: #f2f6fb;
-    padding: 40px 35px;
-    border-radius: 15px;
-    margin-top: 50px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #002c5f;
+.order-form h2 {
+  margin-bottom: 20px;
+  color: #005baa;
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1.5px solid #ccd6e0;
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
+.order-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
 }
 
-input:focus, select:focus, textarea:focus {
-    border-color: #0063c6;
-    outline: none;
+.order-form input,
+.order-form select,
+.order-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
 }
 
-button[type="submit"] {
-    background: #002c5f;
-    color: white;
-    border: none;
-    padding: 16px 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    margin-top: 10px;
-}
-button[type="submit"]:hover {
-    background: #001739;
-    box-shadow: 0 8px 25px rgba(0, 23, 57, 0.6);
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+  border-color: #005baa;
+  outline: none;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .vehicle-header {
-        flex-direction: column;
-    }
-    .specs {
-        grid-template-columns: 1fr;
-    }
-    .model-option {
-        padding: 12px 20px;
-        font-size: 15px;
-    }
+.order-form button {
+  background-color: #005baa;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-    .price {
-        font-size: 24px;
-    }
-    .model-option {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
+.order-form button:hover {
+  background-color: #003b70;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+  .vehicle-header {
+    flex-direction: column;
+  }
+
+  .model-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slideshow-container {
+    height: 220px;
+  }
 }

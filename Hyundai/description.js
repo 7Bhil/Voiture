@@ -13,8 +13,8 @@ const models = {
     images: [
       "../Voiture/Hyundai/Berlines/berline01.jpg",
       "../Voiture/Hyundai/Berlines/berline02.jpg",
-      "../Voiture/Hyundai/Berlines/berline03.jpg",
-      "../Voiture/Hyundai/Berlines/berline04.jpg",
+      "../Voiture/Hyundai/Berlines/berline03.jpg", // corrigé ici
+      "../Voiture/Hyundai/Berlines/berline04.jpg", // corrigé ici aussi
     ],
   },
   sportive: {
@@ -88,7 +88,7 @@ function renderModel(key) {
     modelSpecsContainer.appendChild(div);
   });
 
-  // Préparer slideshow images
+  // Slideshow
   slideshowContainer.innerHTML = "";
   model.images.forEach((src, index) => {
     const slide = document.createElement("div");
@@ -104,7 +104,6 @@ function renderModel(key) {
   renderIndicators(model.images.length);
   updateFormFields();
 
-  // Mettre à jour active bouton
   modelOptions.forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.model === key);
   });
@@ -137,6 +136,7 @@ function goToSlide(index) {
   currentSlideIndex = index;
 }
 
+// Navigation
 document.getElementById("prevSlide").addEventListener("click", () => {
   goToSlide(currentSlideIndex - 1);
 });
@@ -160,6 +160,5 @@ function updateFormFields() {
   formPrice.value = model.price;
 }
 
-// Initial render
+// Initialisation
 renderModel(currentModelKey);
-elector('.slideshow-nav button:nth-child(2)').addEventListener('click', nextSlide);
